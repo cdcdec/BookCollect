@@ -6,7 +6,11 @@ import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
 import com.cdc.model.Dynasty;
-
+/**
+ * 为朝代下拉框提供数据
+ * @author aaron
+ *
+ */
 public class DynastyComboBoxModel extends AbstractListModel implements ComboBoxModel{
 	
 	/**
