@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+ <meta charset="UTF-8">  
+ <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</script> 
+
+<title>标题</title> 
+
+<script type="text/javascript">
+
+<!--此函数由java swing调用-->
+	 function callBackDate(sss){
+			alert(sss);
+		}
+
+		var  temp="";
+
+function tt(){
+	temp=document.getElementById('temp').value;
+	//alert(temp);
+}
+
+
+
+</script>
+</head>
+<body>
+<input type="text" name="pa" id="temp"  ONBLUR="(tt())">
+<!--传递信息到java swing界面,invokeJavaNoError()函数由java swing实现-->
+<input type="button" name="aa"  value="由js调用java的方法,并由java方法接收来自js的数据" onclick="invokeJavaNoError(temp)"><br/>
+
+
+
+
+
+
+</body>
+
+</html>

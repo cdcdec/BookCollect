@@ -1,7 +1,7 @@
 package com.cdc.dao.impl;
 
 import java.sql.ResultSet;
-import java.util.Collection;
+import java.util.List;
 
 import com.cdc.jdbc.JDBCExecutor;
 import com.cdc.model.ValueObject;
@@ -14,7 +14,7 @@ public class BaseDaoImpl {
 		}
 		
 		//根据参数的SQL, 存放结果的集合对象, 和具体的数据库映射对象返回一个集合
-		public Collection<?> getDatas(String sql, Collection<ValueObject> result, 
+		public List<?> getDatas(String sql, List<ValueObject> result, 
 				Class<?> clazz) {
 			//执行SQL返回ResultSet对象
 			ResultSet rs = getJDBCExecutor().executeQuery(sql);

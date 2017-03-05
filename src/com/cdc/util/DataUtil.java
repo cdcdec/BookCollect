@@ -11,7 +11,7 @@ import com.cdc.model.ValueObject;
 
 public class DataUtil {
 	//将rs中的值封装成一个集合
-	public static Collection<?> getDatas(Collection<ValueObject> result, ResultSet rs, Class<?> clazz) {
+	public static List<ValueObject> getDatas(List<ValueObject> result, ResultSet rs, Class<?> clazz) {
 		try {
 			while (rs.next()) {
 				//创建类的实例
@@ -30,7 +30,7 @@ public class DataUtil {
 					Method setterMethod = clazz.getMethod(setterMethodName, field.getType());
 					invokeMethod(rs, field, vo, setterMethod);
 				}
-				result.add((ValueObject) vo);
+				result.add((ValueObject)vo);
 			}
 			rs.close();
 		} catch (Exception e) {

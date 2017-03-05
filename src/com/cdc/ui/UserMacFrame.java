@@ -13,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.cdc.dao.impl.DynastyDaoImpl;
+import com.cdc.service.impl.DynastyServiceImpl;
+
 public class UserMacFrame {
 	
 	private String [] items=new String[]{"用户名","mac","识别码","终端编码"};
@@ -70,7 +73,12 @@ public class UserMacFrame {
 		c.gridx = 2;
 		c.gridy = 0;
 		buttonPanel.add(box2,c);
-		JComboBox<String> jComboBox=new JComboBox<String>(items);
+		
+		DynastyServiceImpl  dynastyServiceImpl=new DynastyServiceImpl(new DynastyDaoImpl());
+		DynastyComboBoxModel dynastyComboBoxModel=new DynastyComboBoxModel(dynastyServiceImpl.getDynastys());
+		@SuppressWarnings("unchecked")
+		JComboBox<String> jComboBox=new JComboBox<String>(dynastyComboBoxModel);
+		jComboBox.setSelectedIndex(0);
 		jComboBox.setPreferredSize(new Dimension(10, 27));
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.weightx = 0.25;
